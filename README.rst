@@ -26,7 +26,7 @@ Background
 This page contains the details of the functions, classes, and methods
 available in the PCF8523 library.
 
-The DS3231 library consists of three major sections:
+The PCF8523 library consists of three major sections:
 
 #. Functions
 #. The base class _BaseRTC
