@@ -38,7 +38,8 @@ https://github.com/adafruit/micropython/releases
 **Notes:**
 
 #. Milliseconds are not supported by this RTC.
-#. The data sheet for the PCF8523 can be obtained from
+#. The data sheet for the PCF8523 can be obtained from.
+#. mpy files automatically generated.
 
 http://cache.nxp.com/documents/data_sheet/PCF8523.pdf
 
