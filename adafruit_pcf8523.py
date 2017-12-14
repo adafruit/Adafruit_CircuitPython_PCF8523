@@ -40,12 +40,13 @@ Implementation Notes
 
 **Hardware:**
 
-* Adafruit `Adalogger FeatherWing - RTC + SD Add-on <https://www.adafruit.com/products/2922>`_ (Product ID: 2922)
+* Adafruit `Adalogger FeatherWing - RTC + SD Add-on <https://www.adafruit.com/products/2922>`_
+  (Product ID: 2922)
 * Adafruit `PCF8523 RTC breakout <https://www.adafruit.com/products/3295>`_ (Product ID: 3295)
 
 **Software and Dependencies:**
 
-* Adafruit CircuitPython firmware for the ESP8622 and M0-based boards: https://github.com/adafruit/micropython/releases
+* Adafruit CircuitPython firmware: https://github.com/adafruit/circuitpython/releases
 * Adafruit's Register library: https://github.com/adafruit/Adafruit_CircuitPython_Register
 * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 
@@ -55,6 +56,9 @@ Implementation Notes
 #. Datasheet: http://cache.nxp.com/documents/data_sheet/PCF8523.pdf
 
 """
+
+__version__ = "0.0.0-auto.0"
+__repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_PCF8523.git"
 
 from adafruit_bus_device.i2c_device import I2CDevice
 from adafruit_register import i2c_bit
@@ -82,7 +86,8 @@ class PCF8523:
 
     # The False means that day and weekday share a register. The 0 is that the
     # first day of the week is value 0 and not 1.
-    alarm = i2c_bcd_alarm.BCDAlarmTimeRegister(0x0a, has_seconds=False, weekday_shared=False, weekday_start=0)
+    alarm = i2c_bcd_alarm.BCDAlarmTimeRegister(0x0a, has_seconds=False, weekday_shared=False,
+                                               weekday_start=0)
     """Alarm time for the first alarm."""
 
     alarm_interrupt = i2c_bit.RWBit(0x00, 1)
@@ -94,8 +99,8 @@ class PCF8523:
     battery_low = i2c_bit.ROBit(0x02, 2)
     """True if the battery is low and should be replaced."""
 
-    def __init__(self, i2c):
-        self.i2c_device = I2CDevice(i2c, 0x68)
+    def __init__(self, i2c_bus):
+        self.i2c_device = I2CDevice(i2c_bus, 0x68)
 
         # Try and verify this is the RTC we expect by checking the timer B
         # frequency control bits which are 1 on reset and shouldn't ever be
@@ -111,7 +116,8 @@ class PCF8523:
 
     @property
     def datetime(self):
-        """Gets the current date and time or sets the current date and time then starts the clock."""
+        """Gets the current date and time or sets the current date and time then starts the
+           clock."""
         return self.datetime_register
 
     @datetime.setter

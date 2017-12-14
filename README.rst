@@ -64,14 +64,14 @@ Now, to initialize the I2C bus:
 
 .. code:: python
 
-    myI2C = busio.I2C(SCL, SDA)
+    i2c_bus = busio.I2C(SCL, SDA)
 
 Once you have created the I2C interface object, you can use it to instantiate
 the RTC object:
 
 .. code:: python
 
-    rtc = adafruit_pcf8523.PCF8523(myI2C)
+    rtc = adafruit_pcf8523.PCF8523(i2c_bus)
 
 Date and time
 -------------
