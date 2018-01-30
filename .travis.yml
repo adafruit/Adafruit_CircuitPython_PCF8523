@@ -28,3 +28,4 @@ script:
   - pylint adafruit_pcf8523.py
   - ([[ ! -d "examples" ]] || pylint --disable=missing-docstring,invalid-name examples/*.py)
   - circuitpython-build-bundles --filename_prefix adafruit-circuitpython-pcf8523 --library_location .
+  - sphinx-build -E -W -b html . _build/html
