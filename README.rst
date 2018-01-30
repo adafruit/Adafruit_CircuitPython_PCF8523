@@ -6,9 +6,13 @@ Introduction to Adafruit's PCF8523 Real Time Clock (RTC) Library
     :target: https://circuitpython.readthedocs.io/projects/pcf8523/en/latest/
     :alt: Documentation Status
 
-.. image :: https://badges.gitter.im/adafruit/circuitpython.svg
-    :target: https://gitter.im/adafruit/circuitpython?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
-    :alt: Gitter
+.. image :: https://img.shields.io/discord/327254708534116352.svg
+    :target: https://discord.gg/nBQh6qu
+    :alt: Discord
+
+.. image:: https://travis-ci.org/adafruit/Adafruit_CircuitPython_PCF8523.svg?branch=master
+    :target: https://travis-ci.org/adafruit/Adafruit_CircuitPython_PCF8523
+    :alt: Build Status
 
 This is a great battery-backed real time clock (RTC) that allows your
 microcontroller project to keep track of time even if it is reprogrammed,
@@ -23,7 +27,7 @@ temperature compensated alternative, please check out the
 If you need a DS1307 for compatibility reasons, check out our
 `DS1307 RTC breakout <https://www.adafruit.com/products/3296>`_.
 
-.. image:: 3295-00.jpg
+.. image:: docs/_static/3295-00.jpg
 
 Dependencies
 =============
@@ -76,15 +80,15 @@ the RTC object:
 Date and time
 -------------
 
-To set the time, you need to set ``datetime`` to a `time.struct_time` object:
+To set the time, you need to set datetime` to a `time.struct_time` object:
 
 .. code:: python
 
     rtc.datetime = time.struct_time((2017,1,9,15,6,0,0,9,-1))
 
-After the RTC is set, you retrieve the time by reading the ``datetime``
-attribute and access the standard attributes of a struct_time such as `tm_year`,
-`tm_hour` and `tm_min`.
+After the RTC is set, you retrieve the time by reading the `datetime`
+attribute and access the standard attributes of a struct_time such as ``tm_year``,
+``tm_hour`` and ``tm_min``.
 
 .. code:: python
 
@@ -95,7 +99,7 @@ attribute and access the standard attributes of a struct_time such as `tm_year`,
 Alarm
 -----
 
-To set the time, you need to set ``alarm`` to a tuple with a `time.struct_time`
+To set the time, you need to set `alarm` to a tuple with a `time.struct_time`
 object and string representing the frequency such as "hourly":
 
 .. code:: python
@@ -111,10 +115,51 @@ After the RTC is set, you retrieve the alarm status by reading the
         print("wake up!")
         rtc.alarm_status = False
 
-API Reference
-=============
+Table of Contents
+=================
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 4
 
-   api
+    self
+
+.. toctree::
+    :caption: Examples
+
+    docs/examples
+
+.. toctree::
+    :caption: API Reference
+    :maxdepth: 3
+
+    docs/api
+
+
+.. toctree::
+    :caption: Tutorials
+
+    Adafruit PCF8523 Real Time Clock <https://learn.adafruit.com/adafruit-pcf8523-real-time-clock?view=all>
+    Adafruit Adalogger FeatherWing <https://learn.adafruit.com/adafruit-adalogger-featherwing?view=all>
+
+.. toctree::
+    :caption: Related Products
+
+    Adafruit PCF8523 Real Time Clock Breakout <https://www.adafruit.com/product/3295>
+    Adafruit Adalogger FeatherWing - RTC + SD <https://www.adafruit.com/product/2922>
+
+.. toctree::
+    :caption: Other Links
+
+    CircuitPython Reference Documentation <https://circuitpython.readthedocs.io>
+    CircuitPython Support Forum <https://forums.adafruit.com/viewforum.php?f=60>
+    Discord Chat <https://adafru.it/discord>
+    Adafruit Learning System <https://learn.adafruit.com>
+    Adafruit Blog <https://blog.adafruit.com>
+    Adafruit Store <https://www.adafruit.com>
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
