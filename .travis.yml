@@ -22,7 +22,7 @@ deploy:
     tags: true
 
 install:
-  - pip install pylint circuitpython-build-tools sphinx-build sphinx-rtd-theme
+  - pip install pylint circuitpython-build-tools Sphinx sphinx-rtd-theme
 
 script:
   - pylint adafruit_pcf8523.py
