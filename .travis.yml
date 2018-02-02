@@ -22,9 +22,10 @@ deploy:
     tags: true
 
 install:
-  - pip install pylint circuitpython-build-tools
+  - pip install pylint circuitpython-build-tools Sphinx sphinx-rtd-theme
 
 script:
   - pylint adafruit_pcf8523.py
   - ([[ ! -d "examples" ]] || pylint --disable=missing-docstring,invalid-name examples/*.py)
   - circuitpython-build-bundles --filename_prefix adafruit-circuitpython-pcf8523 --library_location .
+  - cd docs && sphinx-build -E -W -b html . _build/html
