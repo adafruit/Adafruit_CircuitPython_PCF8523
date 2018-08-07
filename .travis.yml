@@ -1,31 +1,32 @@
-# This is a common .travis.yml for generating library release zip files for
-# CircuitPython library releases using circuitpython-build-tools.
-# See https://github.com/adafruit/circuitpython-build-tools for detailed setup
-# instructions.
-
 dist: trusty
 sudo: false
 language: python
 python:
-    - "3.6"
-
+- '3.6'
 cache:
-    pip: true
-
+  pip: true
 deploy:
-  provider: releases
-  api_key: $GITHUB_TOKEN
+- provider: releases
+  api_key: "$GITHUB_TOKEN"
   file_glob: true
-  file: bundles/*
+  file: "$TRAVIS_BUILD_DIR/bundles/*"
   skip_cleanup: true
+  overwrite: true
   on:
     tags: true
-
+- provider: pypi
+  user: adafruit-travis
+  on:
+    tags: true
+  password:
+    secure: AUoVuxg57UAMz9ZcTB7m9APh56qhBy9tcLLRJiMi7Ik/NDVnHv5RXv44opyEIEOR/PSPRZmdg+rsOfefs2inFYuo69ju1euaN4FY8j1bER7X0lIzAPzF3b3lvECQ7atPpQVQmjZRz1dMjmwQKNEPdvVSuz66FfpenX50jRVA2NI/Ve4fsysiVksfXPFmS97IJOwoGSQloSPlpwI8M6/WixCSJyCObpiTWiXysn1qTS1QVHzDX0z2pSRUzU30/YxoGvmlYUO1dDDjkcVL9AfZya0MxsozDyW5BEPHLVtly3No9SOYr7L1+G/FIsJIclcishF5lOaRG6cYbILPR/qTPabGSJnn6vUrjpjrQlzBsGjYMBoM8qDJZDo585rdfjHR8TLmS/lBW+7BEIsChezpbLpSwPfyuOuFvDWVUSZ97bsKH+ZVcMAvNEoWmBZQuylWYAficwcUYdu+7Ktq1AAfRVWPutkZ6OKZyI4/JFJ/yrFCIpBr5E7aM6ITfTlaBOU5DUyVxEX9KosLRqx7t0KkUocAOaPpmJlaCa9uao1ufPATy/fqydWjl84MGgKN3i5fiXjN9J+gdrmZtOOr9/aqjOuO6pFwuRiFxMo3RAqAv+GSTot1nWPCm4wYYV0+n45bgIw6YUkiHekW08q+Ne+nGAlg1swATi0ahHSN2tooN7o=
 install:
-  - pip install pylint circuitpython-build-tools Sphinx sphinx-rtd-theme
-
+- pip install -r requirements.txt
+- pip install pylint circuitpython-build-tools Sphinx sphinx-rtd-theme
+- pip install --force-reinstall pylint==1.9.2
 script:
-  - pylint adafruit_pcf8523.py
-  - ([[ ! -d "examples" ]] || pylint --disable=missing-docstring,invalid-name examples/*.py)
-  - circuitpython-build-bundles --filename_prefix adafruit-circuitpython-pcf8523 --library_location .
-  - cd docs && sphinx-build -E -W -b html . _build/html
+- pylint adafruit_pcf8523.py
+- ([[ ! -d "examples" ]] || pylint --disable=missing-docstring,invalid-name examples/*.py)
+- circuitpython-build-bundles --filename_prefix adafruit-circuitpython-pcf8523 --library_location
+  .
+- cd docs && sphinx-build -E -W -b html . _build/html && cd ..
