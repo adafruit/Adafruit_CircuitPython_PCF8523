@@ -10,8 +10,8 @@ Introduction to Adafruit's PCF8523 Real Time Clock (RTC) Library
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://travis-ci.org/adafruit/Adafruit_CircuitPython_PCF8523.svg?branch=master
-    :target: https://travis-ci.org/adafruit/Adafruit_CircuitPython_PCF8523
+.. image:: https://travis-ci.com/adafruit/Adafruit_CircuitPython_PCF8523.svg?branch=master
+    :target: https://travis-ci.com/adafruit/Adafruit_CircuitPython_PCF8523
     :alt: Build Status
 
 This is a great battery-backed real time clock (RTC) that allows your
