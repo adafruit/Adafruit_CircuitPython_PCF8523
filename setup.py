@@ -34,7 +34,7 @@ setup(
     author='Adafruit Industries',
     author_email='circuitpython@adafruit.com',
 
-    install_requires=['adafruit-circuitpython-register', 'adafruit-circuitpython-busdevice'],
+    install_requires=['Adafruit-Blinka', 'adafruit-circuitpython-register', 'adafruit-circuitpython-busdevice'],
 
     # Choose your license
     license='MIT',
