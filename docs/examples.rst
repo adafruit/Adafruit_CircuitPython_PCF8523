@@ -1,6 +1,6 @@
 Demo
 ----
 
-.. literalinclude:: ../examples/demo.py
-    :caption: examples/demo.py
+.. literalinclude:: ../examples/pcf8523_simpletest.py
+    :caption: examples/pcf8523_simpletest.py
     :linenos:
