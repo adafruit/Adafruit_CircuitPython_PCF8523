@@ -108,8 +108,7 @@ class PCF8523:
         buf = bytearray(2)
         buf[0] = 0x12
         with self.i2c_device as i2c:
-            i2c.write(buf, end=1, stop=False)
-            i2c.readinto(buf, start=1)
+            i2c.write_then_readinto(buf, buf, out_end=1, in_start=1)
 
         if (buf[1] & 0b00000111) != 0b00000111:
             raise ValueError("Unable to find PCF8523 at i2c address 0x68.")
