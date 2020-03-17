@@ -69,6 +69,7 @@ from adafruit_register import i2c_bcd_datetime
 STANDARD_BATTERY_SWITCHOVER_AND_DETECTION = 0b000
 BATTERY_SWITCHOVER_OFF = 0b111
 
+
 class PCF8523:
     """Interface to the PCF8523 RTC."""
 
@@ -86,8 +87,9 @@ class PCF8523:
 
     # The False means that day and weekday share a register. The 0 is that the
     # first day of the week is value 0 and not 1.
-    alarm = i2c_bcd_alarm.BCDAlarmTimeRegister(0x0a, has_seconds=False, weekday_shared=False,
-                                               weekday_start=0)
+    alarm = i2c_bcd_alarm.BCDAlarmTimeRegister(
+        0x0A, has_seconds=False, weekday_shared=False, weekday_start=0
+    )
     """Alarm time for the first alarm."""
 
     alarm_interrupt = i2c_bit.RWBit(0x00, 1)
