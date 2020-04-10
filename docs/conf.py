@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Adafruit's PCF8523 RTC Library documentation build configuration file, created by
+# Adafruit PCF8523 RTC Library documentation build configuration file, created by
 # sphinx-quickstart on Fri Nov 11 21:37:36 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -54,7 +54,7 @@ source_suffix = [".rst", ".md"]
 master_doc = "index"
 
 # General information about the project.
-project = "Adafruit's PCF8523 RTC Library"
+project = "Adafruit PCF8523 RTC Library"
 copyright = "2016, Philip Moyer"
 author = "Philip Moyer"
 
@@ -153,7 +153,7 @@ else:
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = u'Adafruit\'s PCF8523 RTC Library v1.0'
+# html_title = u'Adafruit PCF8523 RTC Library v1.0'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -277,8 +277,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "AdafruitsPCF8523RTCLibrary.tex",
-        "Adafruit's PCF8523 RTC Library Documentation",
+        "AdafruitPCF8523RTCLibrary.tex",
+        "Adafruit PCF8523 RTC Library Documentation",
         "Philip Moyer",
         "manual",
     ),
@@ -324,8 +324,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "AdafruitsPCF8523RTCLibrary23rtclibrary",
-        "Adafruit's PCF8523 RTC Library Documentation",
+        "AdafruitPCF8523RTCLibrary23rtclibrary",
+        "Adafruit PCF8523 RTC Library Documentation",
         [author],
         1,
     )
@@ -344,10 +344,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "AdafruitsPCF8523RTCLibrary",
-        "Adafruit's PCF8523 RTC Library Documentation",
+        "AdafruitPCF8523RTCLibrary",
+        "Adafruit PCF8523 RTC Library Documentation",
         author,
-        "AdafruitsPCF8523RTCLibrary",
+        "AdafruitPCF8523RTCLibrary",
         "One line description of project.",
         "Miscellaneous",
     ),
