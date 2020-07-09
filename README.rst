@@ -88,7 +88,7 @@ SCL and SDA pins, you can:
     from board import *
 
 You can also use pins defined by the onboard `microcontroller` through the
-`microcontroller.pin` module.
+`microcontroller.Pin` module.
 
 Now, to initialize the I2C bus:
 
