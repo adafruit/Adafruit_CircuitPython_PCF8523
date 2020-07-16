@@ -101,6 +101,15 @@ class PCF8523:
     battery_low = i2c_bit.ROBit(0x02, 2)
     """True if the battery is low and should be replaced."""
 
+    cap_sel = i2c_bit.RWBit(0x00, 7)
+    """True for high oscillator capacitance (12.5pF), otherwise lower (7pF)"""
+
+    calibration_mode = i2c_bit.RWBit(0x0e, 7)
+    """False to offset every 2 hours (1 LSB = 4.340ppm); True to offset every minute (1 LSB = 4.069ppm).  The factory default, False, consumes less power"""
+
+    calibration = i2c_bits.RWBits(7, 0xe, 0, signed=True)
+    """Calibration offset to apply, from -64 to +63.  See the PCF8523 datasheet figure 18 for the offset calibration calculation workflow."""
+
     def __init__(self, i2c_bus):
         self.i2c_device = I2CDevice(i2c_bus, 0x68)
 
