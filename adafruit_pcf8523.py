@@ -101,7 +101,7 @@ class PCF8523:
     battery_low = i2c_bit.ROBit(0x02, 2)
     """True if the battery is low and should be replaced."""
 
-    cap_sel = i2c_bit.RWBit(0x00, 7)
+    high_capacitance = i2c_bit.RWBit(0x00, 7)
     """True for high oscillator capacitance (12.5pF), otherwise lower (7pF)"""
 
     calibration_mode = i2c_bit.RWBit(0x0E, 7)
