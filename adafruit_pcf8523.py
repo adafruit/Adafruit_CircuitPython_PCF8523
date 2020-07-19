@@ -104,7 +104,7 @@ class PCF8523:
     high_capacitance = i2c_bit.RWBit(0x00, 7)
     """True for high oscillator capacitance (12.5pF), otherwise lower (7pF)"""
 
-    calibration_schedule_every_minute = i2c_bit.RWBit(0x0E, 7)
+    calibration_schedule_per_minute = i2c_bit.RWBit(0x0E, 7)
     """False to apply the calibration offset every 2 hours (1 LSB = 4.340ppm);
     True to offset every minute (1 LSB = 4.069ppm).  The default, False,
     consumes less power.  See datasheet figures 28-31 for details."""
