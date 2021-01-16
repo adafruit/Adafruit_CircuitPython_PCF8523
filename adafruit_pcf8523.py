@@ -1,24 +1,7 @@
-# The MIT License (MIT)
+# SPDX-FileCopyrightText: 2016 Philip R. Moyer for Adafruit Industries
+# SPDX-FileCopyrightText: 2016 Radomir Dopieralski for Adafruit Industries
 #
-# Copyright (c) 2016 Philip R. Moyer and Radomir Dopieralski for Adafruit Industries.
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
+# SPDX-License-Identifier: MIT
 
 """
 `adafruit_pcf8523` - PCF8523 Real Time Clock module
@@ -109,7 +92,9 @@ class PCF8523:
     True to offset every minute (1 LSB = 4.069ppm).  The default, False,
     consumes less power.  See datasheet figures 28-31 for details."""
 
-    calibration = i2c_bits.RWBits(7, 0xE, 0, signed=True)
+    calibration = i2c_bits.RWBits(  # pylint: disable=unexpected-keyword-arg
+        7, 0xE, 0, signed=True
+    )
     """Calibration offset to apply, from -64 to +63.  See the PCF8523 datasheet
     figure 18 for the offset calibration calculation workflow."""
 
@@ -130,7 +115,7 @@ class PCF8523:
     @property
     def datetime(self):
         """Gets the current date and time or sets the current date and time then starts the
-           clock."""
+        clock."""
         return self.datetime_register
 
     @datetime.setter
