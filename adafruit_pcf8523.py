@@ -29,8 +29,11 @@ Implementation Notes
 
 **Software and Dependencies:**
 
-* Adafruit CircuitPython firmware: https://github.com/adafruit/circuitpython/releases
+* Adafruit CircuitPython firmware for the supported boards:
+  https://circuitpython.org/downloads
+
 * Adafruit's Register library: https://github.com/adafruit/Adafruit_CircuitPython_Register
+
 * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 
 **Notes:**
@@ -54,7 +57,42 @@ BATTERY_SWITCHOVER_OFF = 0b111
 
 
 class PCF8523:
-    """Interface to the PCF8523 RTC."""
+    """Interface to the PCF8523 RTC.
+
+    :param ~busio.I2C i2c_bus: The I2C bus the device is connected to
+
+    **Quickstart: Importing and using the device**
+
+        Here is an example of using the :class:`PCF8523` class.
+        First you will need to import the libraries to use the sensor
+
+        .. code-block:: python
+
+            import time
+            import board
+            import adafruit_pcf8523
+
+        Once this is done you can define your `board.I2C` object and define your sensor object
+
+        .. code-block:: python
+
+            i2c = board.I2C()  # uses board.SCL and board.SDA
+            rtc = adafruit_pcf8523.PCF8523(i2c)
+
+        Now you can give the current time to the device.
+
+        .. code-block:: python
+
+            t = time.struct_time((2017, 10, 29, 15, 14, 15, 0, -1, -1))
+            rtc.datetime = t
+
+        You can access the current time accessing the :attr:`datetime` attribute.
+
+        .. code-block:: python
+
+            current_time = rtc.datetime
+
+    """
 
     lost_power = i2c_bit.RWBit(0x03, 7)
     """True if the device has lost power since the time was set."""

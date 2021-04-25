@@ -8,20 +8,10 @@
 
 import time
 import board
-
-# For hardware I2C (M0 boards) use this line:
-import busio as io
-
-# Or for software I2C (ESP8266) use this line instead:
-# import bitbangio as io
-
 import adafruit_pcf8523
 
-# Change to the appropriate I2C clock & data pins here!
-i2c_bus = io.I2C(board.SCL, board.SDA)
-
-# Create the RTC instance:
-rtc = adafruit_pcf8523.PCF8523(i2c_bus)
+i2c = board.I2C()
+rtc = adafruit_pcf8523.PCF8523(i2c)
 
 # Lookup table for names of days (nicer printing).
 days = ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")

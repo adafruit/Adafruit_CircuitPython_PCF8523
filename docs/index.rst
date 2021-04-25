@@ -23,8 +23,8 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
-    Adafruit PCF8523 Real Time Clock <https://learn.adafruit.com/adafruit-pcf8523-real-time-clock?view=all>
-    Adafruit Adalogger FeatherWing <https://learn.adafruit.com/adafruit-adalogger-featherwing?view=all>
+    Adafruit PCF8523 Real Time Clock <https://learn.adafruit.com/adafruit-pcf8523-real-time-clock/>
+    Adafruit Adalogger FeatherWing <https://learn.adafruit.com/adafruit-adalogger-featherwing>
 
 .. toctree::
     :caption: Related Products
