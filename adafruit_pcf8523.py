@@ -51,6 +51,8 @@ from adafruit_register import i2c_bit
 from adafruit_register import i2c_bits
 from adafruit_register import i2c_bcd_alarm
 from adafruit_register import i2c_bcd_datetime
+from busio import I2C
+from time import struct_time
 
 STANDARD_BATTERY_SWITCHOVER_AND_DETECTION = 0b000
 BATTERY_SWITCHOVER_OFF = 0b111
@@ -136,7 +138,7 @@ class PCF8523:
     """Calibration offset to apply, from -64 to +63.  See the PCF8523 datasheet
     figure 18 for the offset calibration calculation workflow."""
 
-    def __init__(self, i2c_bus):
+    def __init__(self, i2c_bus: I2C):
         self.i2c_device = I2CDevice(i2c_bus, 0x68)
 
         # Try and verify this is the RTC we expect by checking the timer B
@@ -151,13 +153,13 @@ class PCF8523:
             raise ValueError("Unable to find PCF8523 at i2c address 0x68.")
 
     @property
-    def datetime(self):
+    def datetime(self) -> struct_time:
         """Gets the current date and time or sets the current date and time then starts the
         clock."""
         return self.datetime_register
 
     @datetime.setter
-    def datetime(self, value):
+    def datetime(self, value: struct_time):
         # Automatically sets lost_power to false.
         self.power_management = STANDARD_BATTERY_SWITCHOVER_AND_DETECTION
         self.datetime_register = value
