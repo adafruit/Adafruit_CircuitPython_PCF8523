@@ -137,6 +137,11 @@ After the RTC is set, you retrieve the alarm status by reading the
         print("wake up!")
         rtc.alarm_status = False
 
+Documentation
+=============
+
+API documentation for this library can be found on `Read the Docs <https://circuitpython.readthedocs.io/projects/pcf8523/en/latest/>`_.
+
 Contributing
 ============
 
