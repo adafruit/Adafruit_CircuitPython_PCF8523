@@ -116,14 +116,14 @@ class PCF8523:
     clockout_frequency = i2c_bits.RWBits(3, 0x0F, 3)
     """Clock output frequencies generated. Default is 32.768kHz.
     Possible values are as shown (selection value - frequency).
-       000 - 32.768khz
-       001 - 16.384khz
-       010 - 8.192kHz
-       011 - 4.096kHz
-       100 - 1.024kHz
-       101 - 0.032kHz (32Hz)
-       110 - 0.001kHz (1Hz)
-       111 - Disabled
+    000 - 32.768khz
+    001 - 16.384khz
+    010 - 8.192kHz
+    011 - 4.096kHz
+    100 - 1.024kHz
+    101 - 0.032kHz (32Hz)
+    110 - 0.001kHz (1Hz)
+    111 - Disabled
     """
 
     # The False means that day and weekday share a register. The 0 is that the
