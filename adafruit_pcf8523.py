@@ -113,7 +113,7 @@ class PCF8523:
     datetime_register = i2c_bcd_datetime.BCDDateTimeRegister(0x03, False, 0)
     """Current date and time."""
 
-    clockout_frequency = i2c_bits.RWBits(0x0F, 0x03, 3)
+    clockout_frequency = i2c_bits.RWBits(3, 0x0F, 3)
     """Clock output frequencies generated. Default is 32.768kHz.
     Possible values are as shown (selection value - frequency).
        000 - 32.768khz
