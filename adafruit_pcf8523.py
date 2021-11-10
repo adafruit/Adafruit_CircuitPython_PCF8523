@@ -112,13 +112,20 @@ class PCF8523:
     # that the first day of the week is value 0 and not 1.
     datetime_register = i2c_bcd_datetime.BCDDateTimeRegister(0x03, False, 0)
     """Current date and time."""
-    
-    clockout_cof = i2ci2c_bits.RWBits(0x0F,0x03,3)
-    """ 000 32768Khz 
-        001 16384Khz 
-        010  4096KHz 
-        111  Disabled """
-    
+
+    clockout_frequency = i2c_bits.RWBits(0x0F, 0x03, 3)
+    """Clock output frequencies generated. Default is 32.768kHz.
+    Possible values are as shown (selection value - frequency).
+       000 - 32.768khz
+       001 - 16.384khz
+       010 - 8.192kHz
+       011 - 4.096kHz
+       100 - 1.024kHz
+       101 - 0.032kHz (32Hz)
+       110 - 0.001kHz (1Hz)
+       111 - Disabled
+    """
+
     # The False means that day and weekday share a register. The 0 is that the
     # first day of the week is value 0 and not 1.
     alarm = i2c_bcd_alarm.BCDAlarmTimeRegister(
