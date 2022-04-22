@@ -6,7 +6,7 @@ Introduction to Adafruit's PCF8523 Real Time Clock (RTC) Library
     :target: https://docs.circuitpython.org/projects/pcf8523/en/latest/
     :alt: Documentation Status
 
-.. image :: https://img.shields.io/discord/327254708534116352.svg
+.. image:: https://github.com/adafruit/Adafruit_CircuitPython_Bundle/blob/main/badges/adafruit_discord.svg
     :target: https://adafru.it/discord
     :alt: Discord
 
