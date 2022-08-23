@@ -60,7 +60,7 @@ master_doc = "index"
 # General information about the project.
 project = "Adafruit PCF8523 RTC Library"
 current_year = str(datetime.datetime.now().year)
-copyright = "2016, Philip Moyer"
+copyright = current_year + " Philip Moyer"
 author = "Philip Moyer"
 
 # The version info for the project you're documenting, acts as replacement for
