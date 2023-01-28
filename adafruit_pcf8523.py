@@ -52,7 +52,7 @@ from adafruit_register import i2c_bit
 from adafruit_register import i2c_bits
 from adafruit_register import i2c_bcd_alarm
 from adafruit_register import i2c_bcd_datetime
-from micropython       import const
+from micropython import const
 
 try:
     import typing  # pylint: disable=unused-import
@@ -128,19 +128,19 @@ class PCF8523:
     111 - Disabled
     """
 
-    CLOCKOUT_FREQ_32KHZ    = const(0b000)
+    CLOCKOUT_FREQ_32KHZ = const(0b000)
     """Clock frequency of 32 KHz"""
-    CLOCKOUT_FREQ_16KHZ    = const(0b001)
+    CLOCKOUT_FREQ_16KHZ = const(0b001)
     """Clock frequency of 16 KHz"""
-    CLOCKOUT_FREQ_8KHZ     = const(0b010)
+    CLOCKOUT_FREQ_8KHZ = const(0b010)
     """Clock frequency of  8 KHz"""
-    CLOCKOUT_FREQ_4KHZ     = const(0b011)
+    CLOCKOUT_FREQ_4KHZ = const(0b011)
     """Clock frequency of  4 KHz"""
-    CLOCKOUT_FREQ_1KHZ     = const(0b100)
+    CLOCKOUT_FREQ_1KHZ = const(0b100)
     """Clock frequency of  4 KHz"""
-    CLOCKOUT_FREQ_32HZ     = const(0b101)
+    CLOCKOUT_FREQ_32HZ = const(0b101)
     """Clock frequency of 32 Hz"""
-    CLOCKOUT_FREQ_1HZ      = const(0b110)
+    CLOCKOUT_FREQ_1HZ = const(0b110)
     """Clock frequency of 1 Hz"""
     CLOCKOUT_FREQ_DISABLED = const(0b111)
     """Clock output disabled"""
@@ -178,15 +178,15 @@ class PCF8523:
     111 -  1/3600Hz
     """
 
-    TIMER_FREQ_4KHZ      = const(0b000)
+    TIMER_FREQ_4KHZ = const(0b000)
     """Timer frequency of 4 KHz"""
-    TIMER_FREQ_64HZ      = const(0b001)
+    TIMER_FREQ_64HZ = const(0b001)
     """Timer frequency of 64 Hz"""
-    TIMER_FREQ_1HZ       = const(0b010)
+    TIMER_FREQ_1HZ = const(0b010)
     """Timer frequency of 1 Hz"""
-    TIMER_FREQ_1_60HZ    = const(0b011)
+    TIMER_FREQ_1_60HZ = const(0b011)
     """Timer frequency of 1/60 Hz"""
-    TIMER_FREQ_1_3600HZ  = const(0b111)
+    TIMER_FREQ_1_3600HZ = const(0b111)
     """Timer frequency of 1/3600 Hz"""
 
     timerA_value = i2c_bits.RWBits(7, 0x11, 0)
