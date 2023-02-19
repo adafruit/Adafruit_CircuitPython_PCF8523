@@ -189,7 +189,7 @@ class PCF8523:
     TIMER_FREQ_1_3600HZ = const(0b111)
     """Timer frequency of 1/3600 Hz"""
 
-    timerA_value = i2c_bits.RWBits(7, 0x11, 0)
+    timerA_value = i2c_bits.RWBits(8, 0x11, 0)
     """ TimerA value (0-255). The default is undefined.
     The total countdown duration is calcuated by
     timerA_value/timerA_frequency. For a higher precision, use higher values
@@ -226,7 +226,7 @@ class PCF8523:
     111 -  1/3600Hz
     """
 
-    timerB_value = i2c_bits.RWBits(7, 0x13, 0)
+    timerB_value = i2c_bits.RWBits(8, 0x13, 0)
     """ TimerB value (0-255). The default is undefined.
     The total countdown duration is calcuated by
     timerB_value/timerB_frequency. For a higher precision, use higher values
