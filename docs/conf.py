@@ -38,7 +38,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinxcontrib.jquery",
     "sphinx.ext.todo",
-    "sphinx.ext.intersphinx"
+    "sphinx.ext.intersphinx",
 ]
 
 # Uncomment the below if you use native CircuitPython modules such as
