@@ -52,7 +52,6 @@ from adafruit_register import i2c_bit
 from adafruit_register import i2c_bits
 from adafruit_register import i2c_bcd_alarm
 from adafruit_register import i2c_bcd_datetime
-from micropython import const
 
 try:
     import typing  # pylint: disable=unused-import

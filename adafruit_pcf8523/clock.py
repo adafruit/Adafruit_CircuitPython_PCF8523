@@ -53,12 +53,11 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_PCF8523.git"
 import time
 
 from adafruit_bus_device.i2c_device import I2CDevice
-from adafruit_register import i2c_bit
 from adafruit_register import i2c_bits
 from micropython import const
 
 try:
-    import typing import Union
+    from typing import Union
     from busio import I2C
 except ImportError:
     pass

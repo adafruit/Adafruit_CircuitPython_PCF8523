@@ -58,7 +58,7 @@ from adafruit_register import i2c_bits
 from micropython import const
 
 try:
-    import typing import Union
+    from typing import Union
     from busio import I2C
 except ImportError:
     pass
