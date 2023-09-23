@@ -42,7 +42,7 @@ classifiers = [
 dynamic = ["dependencies", "optional-dependencies"]
 
 [tool.setuptools]
-py-modules = ["adafruit_pcf8523"]
+packages = ["adafruit_pcf8523"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
