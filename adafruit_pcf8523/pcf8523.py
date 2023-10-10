@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: MIT
 
 """
-`adafruit_pcf8523` - PCF8523 Real Time Clock module
-====================================================
+`pcf8523` - PCF8523 Real Time Clock module
+==========================================
 
 This library supports the use of the PCF8523-based RTC in CircuitPython. It
 contains a base RTC class used by all Adafruit RTC libraries. This base
