@@ -79,7 +79,7 @@ Of course, you must import the library to use it:
 .. code:: python3
 
     import time
-    import adafruit_pcf8523
+    from adafruit_pcf8523.pcf8523 import PCF8523
 
 All the Adafruit RTC libraries take an instantiated and active I2C object
 (from the `board` library) as an argument to their constructor. The way to
@@ -101,7 +101,7 @@ the RTC object:
 
 .. code:: python3
 
-    rtc = adafruit_pcf8523.PCF8523(i2c)
+    rtc = PCF8523(i2c)
 
 Date and time
 -------------

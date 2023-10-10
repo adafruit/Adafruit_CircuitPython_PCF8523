@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: MIT
 
 """
-`adafruit_pcf8523` - PCF8523 Real Time Clock module
-====================================================
+`pcf8523` - PCF8523 Real Time Clock module
+==========================================
 
 This library supports the use of the PCF8523-based RTC in CircuitPython. It
 contains a base RTC class used by all Adafruit RTC libraries. This base
@@ -39,6 +39,7 @@ Implementation Notes
 **Notes:**
 
 #. Milliseconds are not supported by this RTC.
+#. The alarm does not support seconds. It will always fire on full minutes.
 #. Datasheet: http://cache.nxp.com/documents/data_sheet/PCF8523.pdf
 
 """
@@ -106,32 +107,21 @@ class PCF8523:
 
     power_management = i2c_bits.RWBits(3, 0x02, 5)
     """Power management state that dictates battery switchover, power sources
-    and low battery detection. Defaults to BATTERY_SWITCHOVER_OFF (0b000)."""
+    and low battery detection. Defaults to BATTERY_SWITCHOVER_OFF (0b111)."""
 
     # The False means that day comes before weekday in the registers. The 0 is
     # that the first day of the week is value 0 and not 1.
     datetime_register = i2c_bcd_datetime.BCDDateTimeRegister(0x03, False, 0)
     """Current date and time."""
 
-    clockout_frequency = i2c_bits.RWBits(3, 0x0F, 3)
-    """Clock output frequencies generated. Default is 32.768kHz.
-    Possible values are as shown (selection value - frequency).
-    000 - 32.768khz
-    001 - 16.384khz
-    010 - 8.192kHz
-    011 - 4.096kHz
-    100 - 1.024kHz
-    101 - 0.032kHz (32Hz)
-    110 - 0.001kHz (1Hz)
-    111 - Disabled
-    """
-
     # The False means that day and weekday share a register. The 0 is that the
     # first day of the week is value 0 and not 1.
     alarm = i2c_bcd_alarm.BCDAlarmTimeRegister(
         0x0A, has_seconds=False, weekday_shared=False, weekday_start=0
     )
-    """Alarm time for the first alarm."""
+    """Alarm time for the first alarm. Note that the value of the seconds-fields
+    is ignored, i.e. alarms only fire at full minutes. For short-term
+    alarms, use a timer instead."""
 
     alarm_interrupt = i2c_bit.RWBit(0x00, 1)
     """True if the interrupt pin will output when alarm is alarming."""
@@ -158,17 +148,6 @@ class PCF8523:
 
     def __init__(self, i2c_bus: I2C):
         self.i2c_device = I2CDevice(i2c_bus, 0x68)
-
-        # Try and verify this is the RTC we expect by checking the timer B
-        # frequency control bits which are 1 on reset and shouldn't ever be
-        # changed.
-        buf = bytearray(2)
-        buf[0] = 0x12
-        with self.i2c_device as i2c:
-            i2c.write_then_readinto(buf, buf, out_end=1, in_start=1)
-
-        if (buf[1] & 0b00000111) != 0b00000111:
-            raise ValueError("Unable to find PCF8523 at i2c address 0x68.")
 
     @property
     def datetime(self) -> struct_time:
