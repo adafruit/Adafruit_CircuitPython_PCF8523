@@ -69,7 +69,7 @@ class Clock:  # pylint: disable=too-few-public-methods
     :param I2C i2c_bus: The I2C bus object
     """
 
-    clockout_frequency = i2c_bits.RWBits(3, 0x0F, 3)
+    clockout_frequency = i2c_bits.RWBits(3, 0x0F, 3)  # COF[2:0]
     """Clock output frequencies generated. Default is 32.768kHz.
     Possible values are as shown (selection value - frequency).
     000 - 32.768khz
