@@ -6,6 +6,7 @@
 import time
 import board
 import busio
+from digitalio import DigitalInOut, Direction, Pull
 from adafruit_pcf8523.timer import Timer
 from adafruit_pcf8523.clock import Clock
 
