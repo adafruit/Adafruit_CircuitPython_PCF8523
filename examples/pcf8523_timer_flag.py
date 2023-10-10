@@ -2,7 +2,12 @@
 # SPDX-License-Identifier: MIT
 
 # Simple demo for timer operation using the timer-flag
+
+import time
 import board
+import busio
+from adafruit_pcf8523.timer import Timer
+from adafruit_pcf8523.clock import Clock
 
 LOW_FREQ_TIMER = 10
 HIGH_FREQ_TIMER = 0.02
@@ -10,11 +15,6 @@ HIGH_FREQ_TIME = 10
 PIN_SDA = board.GP2
 PIN_SCL = board.GP3
 # use board.SCL and board.SDA if available
-
-import time
-import busio
-from adafruit_pcf8523.timer import Timer
-from adafruit_pcf8523.clock import Clock
 
 i2c = busio.I2C(PIN_SCL, PIN_SDA)
 # or i2c = board.I2C() if available
