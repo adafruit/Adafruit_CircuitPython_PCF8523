@@ -36,18 +36,18 @@ print("Setting time to:", t)
 
 # Create two Labels to show the readings. If you have a very small
 # display you may need to change to scale=1.
-display_output_label = Label(FONT, text="", scale=2)
-display_output_label2 = Label(FONT, text="", scale=2)
+date_output_label = Label(FONT, text="", scale=2)
+time_output_label = Label(FONT, text="", scale=2)
 
 # place the label in the middle of the screen with anchored positioning
-display_output_label.anchor_point = (0, 0)
-display_output_label.anchored_position = (4, board.DISPLAY.height // 2)
-display_output_label2.anchor_point = (0, 0)
-display_output_label2.anchored_position = (4, 10 + board.DISPLAY.height // 2)
+date_output_label.anchor_point = (0, 0)
+date_output_label.anchored_position = (4, board.DISPLAY.height // 2)
+time_output_label.anchor_point = (0, 0)
+time_output_label.anchored_position = (4, 20 + board.DISPLAY.height // 2)
 
 # add the label to the main_group
-main_group.append(display_output_label)
-main_group.append(display_output_label2)
+main_group.append(date_output_label)
+main_group.append(time_output_label)
 
 # set the main_group as the root_group of the built-in DISPLAY
 board.DISPLAY.root_group = main_group
@@ -56,9 +56,9 @@ board.DISPLAY.root_group = main_group
 while True:
     # Update the label.text property to change the text on the display
     t = rtc.datetime
-    display_output_label.text = (
+    date_output_label.text = (
         f"The date is {days[int(t.tm_wday)]} {t.tm_mday}/{t.tm_mon}/{t.tm_year}"
     )
-    display_output_label2.text = f"The time is {t.tm_hour}:{t.tm_min:02}:{t.tm_sec:02}"
+    time_output_label.text = f"The time is {t.tm_hour}:{t.tm_min:02}:{t.tm_sec:02}"
     # wait for a bit
     time.sleep(1)
