@@ -59,8 +59,6 @@ while True:
     display_output_label.text = (
         f"The date is {days[int(t.tm_wday)]} {t.tm_mday}/{t.tm_mon}/{t.tm_year}"
     )
-    display_output_label2.text = (
-        f"The time is {t.tm_hour}:{t.tm_min:02}:{t.tm_sec:02}"
-    )
+    display_output_label2.text = f"The time is {t.tm_hour}:{t.tm_min:02}:{t.tm_sec:02}"
     # wait for a bit
     time.sleep(1)
