@@ -5,12 +5,13 @@
 
 # Simple demo of the PCF8523 real-time clock using a built-in display.
 import time
+
 import board
 from adafruit_display_text.bitmap_label import Label
-from terminalio import FONT
 from displayio import Group
-from adafruit_pcf8523.pcf8523 import PCF8523
+from terminalio import FONT
 
+from adafruit_pcf8523.pcf8523 import PCF8523
 
 # create a main_group to hold anything we want to show on the display.
 main_group = Group()

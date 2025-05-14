@@ -1,4 +1,7 @@
 
+API Reference
+#############
+
 .. automodule:: adafruit_pcf8523.pcf8523
    :members:
 
