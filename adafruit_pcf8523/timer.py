@@ -57,18 +57,18 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_PCF8523.git"
 import time
 
 from adafruit_bus_device.i2c_device import I2CDevice
-from adafruit_register import i2c_bit
-from adafruit_register import i2c_bits
+from adafruit_register import i2c_bit, i2c_bits
 from micropython import const
 
 try:
     from typing import Union
+
     from busio import I2C
 except ImportError:
     pass
 
 
-class Timer:  # pylint: disable=too-few-public-methods
+class Timer:
     """Interface to the timer of the PCF8563 RTC.
 
     :param I2C i2c_bus: The I2C bus object

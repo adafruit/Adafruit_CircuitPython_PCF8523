@@ -4,10 +4,12 @@
 # Simple demo for timer operation using the timer-flag
 
 import time
+
 import board
 import busio
-from adafruit_pcf8523.timer import Timer
+
 from adafruit_pcf8523.clock import Clock
+from adafruit_pcf8523.timer import Timer
 
 LOW_FREQ_TIMER = 10
 HIGH_FREQ_TIMER = 0.02

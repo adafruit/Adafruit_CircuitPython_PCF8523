@@ -58,12 +58,13 @@ from micropython import const
 
 try:
     from typing import Union
+
     from busio import I2C
 except ImportError:
     pass
 
 
-class Clock:  # pylint: disable=too-few-public-methods
+class Clock:
     """Interface to the clkout of the PCF8523 RTC.
 
     :param I2C i2c_bus: The I2C bus object

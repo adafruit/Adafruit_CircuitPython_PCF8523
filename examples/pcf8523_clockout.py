@@ -6,10 +6,12 @@
 # it is not a perfect square wave (see datasheet 8.9.1.2)
 
 import time
+
 import board
 import busio
 import countio
 from digitalio import Pull
+
 from adafruit_pcf8523.clock import Clock
 
 PIN_SDA = board.GP2  # connect to RTC
