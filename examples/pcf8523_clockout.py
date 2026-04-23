@@ -35,7 +35,7 @@ while True:
     counter.reset()
     time.sleep(DURATION)
     print(f"clock-pulses: {counter.count}")
-    print(f"clock-freq:   {counter.count/DURATION}")
+    print(f"clock-freq:   {counter.count / DURATION}")
 
     # test 32kHz
     print(f"testing 32 kHz clock for {DURATION} seconds")
@@ -44,7 +44,7 @@ while True:
     time.sleep(DURATION)
     clock.clockout_frequency = clock.CLOCKOUT_FREQ_DISABLED
     print(f"clock-pulses: {counter.count}")
-    print(f"clock-freq:   {counter.count/DURATION}")
+    print(f"clock-freq:   {counter.count / DURATION}")
 
     # test 4kHz
     print(f"testing 4 kHz clock for {DURATION} seconds")
@@ -53,7 +53,7 @@ while True:
     time.sleep(DURATION)
     clock.clockout_frequency = clock.CLOCKOUT_FREQ_DISABLED
     print(f"clock-pulses: {counter.count}")
-    print(f"clock-freq:   {counter.count/DURATION}")
+    print(f"clock-freq:   {counter.count / DURATION}")
 
     # test 1Hz
     print(f"testing 1 Hz clock for {DURATION} seconds")
@@ -62,4 +62,4 @@ while True:
     time.sleep(DURATION)
     clock.clockout_frequency = clock.CLOCKOUT_FREQ_DISABLED
     print(f"clock-pulses: {counter.count}")
-    print(f"clock-freq:   {counter.count/DURATION}")
+    print(f"clock-freq:   {counter.count / DURATION}")

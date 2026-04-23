@@ -46,7 +46,7 @@ while True:
         pass
     if intpin.value:
         # shoud not happen!
-        print(f"error: timer did not fire within {LOW_FREQ_TIMER+1} seconds!")
+        print(f"error: timer did not fire within {LOW_FREQ_TIMER + 1} seconds!")
     else:
         elapsed = time.monotonic() - start
         print(f"elapsed: {elapsed}")
